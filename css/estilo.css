@@ -4,14 +4,11 @@
     box-sizing: border-box;
 }
 
-.container{
-    width: 100%;
-    margin: auto;
+.cabecalho{
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    background-color: #000000;
 }
 
-.conteudo{
-    margin: 10% 0;
-}
