@@ -1,68 +1,42 @@
+@import url("./cabecalho.css");
+@import url("./conteudo.css");
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.cabecalho{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    background-color: #000000;
-}
-
-.cabecalho img{
-    width: 30%;
-    max-width: 30%;
-    display: block;
-}
-
-.cabecalho nav{
-    display: flex;
-    justify-content: space-around;
-    width: 60%;
-    height: 100%;
-    flex-wrap: wrap;
-}
-
-.cabecalho a{
-    text-decoration: none;
-    font-size: 4em;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: 700;
-    color: #fff;
-    text-align: center;
-    padding: 20% 0;
-}
-
-.cabecalho a:hover{
-   background-color: #fff;
-   color: #000000; 
+html{
+    font-size: 62.7%;
 }
 
 .tit-sec{
     text-align: center;
-    font-size: 4em;
+    font-size: 4rem;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.conteudo {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 800px;
-    margin: 0 auto;
+
+/* 
+vw = view width
+vh = view hight */
+
+/* BREAKPOINT DO CABEÇALHO */
+@media(max-width:629px){
+    .cabecalho{
+        flex-direction: column;
+    }
+
+    .cabecalho nav{
+        flex-wrap: nowrap;
+    }
+
+    .cabecalho a{
+        font-size: 2rem;
+        padding: 10% 0;
+         
+    }
+
 }
-
-.conteudo img{
-    max-width: 100%;
-    display: block;
-}
-
-.conteudo > div{
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: 300px;
-}
-
-
+/* BREAKPOINT DO CABEÇALHO */
