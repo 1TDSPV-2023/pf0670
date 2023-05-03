@@ -21,6 +21,11 @@
     </header>
 
     <h2 class="tit-sec">Seção Foto</h2>
+
+    <div>
+        <!-- <button name="botao" onclick="alert(document.querySelector('.conteudo img').src)">CLICK</button> -->
+        <button>CLICK</button>
+    </div>
  
     <section class="conteudo">
         <div>
@@ -58,7 +63,7 @@
         </nav> -->
 
         <div>
-            <form action="/action-fake.html" method="POST" onsubmit="return true">
+            <form action="action-fake.html" method="POST" onsubmit="return true">
                 <fieldset>
                     <legend>Contato</legend>
                     <div>
@@ -79,6 +84,33 @@
 
     </footer>
 
+    <script>
+
+        //Comentário de linha
+        /*
+        * Para comentário de Bloco
+        */
+
+        //Declaração de variáveis com a palavra reservada var
+        var nr1 = 10;
+        var nr2 = 5;
+
+        //Saída de dados com console.log()
+        console.log(nr1);
+        console.log(nr2);
+
+        const botoes = document.querySelectorAll("button");
+
+        botoes.forEach( (botao)=>{
+
+            if(botao.textContent == "CLICK"){
+                botao.addEventListener("click", ()=>{
+                    alert("oi!!");
+                })
+            }
+        });
+    
+    </script>
 </body>
 
 </html>
