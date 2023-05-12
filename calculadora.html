@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/calc.css">
+    <script src="./js/calc.js" defer></script>
+
+    <title>CALCULADORA</title>
+</head>
+<body>
+    
+    <div class="calc">
+        <form action="" method="get" onsubmit="return false">
+            <div class="visor-calc">
+                <input type="text" name="visor" id="idVisor" placeholder="0">
+            </div>
+            <div class="btn-calc">
+                <button value="1" id="btn-1" onclick="insereNumeroNoVisor(this,idVisor)">1</button>
+                <button value="2" id="btn-2" onclick="insereNumeroNoVisor(this,idVisor)">2</button>
+                <button value="3" id="btn-3" onclick="insereNumeroNoVisor(this,idVisor)">3</button>
+            </div>
+            <div class="oper-calc">
+                <button value="+" id="btnSoma" onclick="insereNumeroNoVisor(this,idVisor)">+</button>
+            </div>
+            <div class="result-calc">
+                <button value="=" id="btnResult" onclick="resultadoDasOperacoes(idVisor)">=</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
