@@ -53,6 +53,15 @@ addEventListener("click", (evento)=>{
 
         }
 
+        //USUÁRIO QUE REPRESENTA OS DADOS QUE CHEGAM DO FORMULÁRIO.
+        const usuarioLogado = {
+            nomeUsuarioLogado : userInput.value,
+            senhaUsuarioLogado: passInput.value
+        }
+
+        //USUÁRIO QUEVAI REPRESENTAR OS DADOS VALIDADOS
+        let usuarioValidado = {};
+
         let listaDeUsuariosRecuperada = JSON.parse(localStorage.getItem("listaUser"));
 
         if(evento.target.id == "btnSubmit"){
@@ -60,7 +69,8 @@ addEventListener("click", (evento)=>{
         try{
                 listaDeUsuariosRecuperada.forEach((usuario)=>{
 
-                    if(userInput.value == usuario.nomeUsuario && passInput.value == usuario.senhaUsuario){
+                    if(usuarioLogado.nomeUsuarioLogado == usuario.nomeUsuario && usuarioLogado.senhaUsuarioLogado == usuario.senhaUsuario){
+                        usuarioValidado = usuario;
                         throw "USUÁRIO VALIDADO!";
                     }
                 });
@@ -68,14 +78,32 @@ addEventListener("click", (evento)=>{
                 throw "USUÁRIO OU SENHA INCORRETOS!";
 
     }catch(msg){
+
+        const msgStatus = document.querySelector("#info");
+
         if(msg == "USUÁRIO VALIDADO!"){
+            //Criar uma msg para o usuário
+            msgStatus.setAttribute("style","color:#00ff00");
+            msgStatus.innerHTML = `<span><strong>O usuário ${usuarioValidado.nomeCompleto} realizou o login com SUCESSO!!</strong></span>`
+
+            //Adicionar o objeto USUÁRIO-VALIDADO no LOCAL-STORAGE
+            localStorage.setItem("user-validado", JSON.stringify(usuarioValidado));
+
+            //CRIANDO A AUTENTICAÇÃO
+            let token = Math.random().toString(16).substring(2)+Math.random().toString(16).substring(2);
+            //Adicionando o token no LOCAL-STORAGE
+            localStorage.setItem("user-token", token);
+
             //Redirect
-            window.location.href = "../sucesso.html";
+            setTimeout(()=>{
+                window.location.href = "../sucesso.html";
+            },3000);
 
         }else{
-            console.log("USUÁRIO OU SENHA INCORRETOS!");
+            //Criar uma msg para o usuário
+            msgStatus.setAttribute("style","color:#ff0000");
+            msgStatus.innerHTML = `<span><strong>Nome de usuário ou senha inválidos...</strong></span>`
         }
     }
-
   }
 });
